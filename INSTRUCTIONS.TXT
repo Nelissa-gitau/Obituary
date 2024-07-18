@@ -1,0 +1,19 @@
+## Install dependencies:
+## Ensure you have Python and pip installed. Then run:
+pip install -r requirements.txt
+
+## Set up the database:
+python manage.py migrate
+
+ ## Create a superuser (optional, for admin access):
+python manage.py createsuperuser
+
+## Run the development server
+python manage.py runserver
+
+
+# TO view pages 
+http://127.0.0.1:8000   ----> Homepage
+http://127.0.0.1:8000/admin/login/?next=/admin/ ----> Admin page ||username:admin password:adminpass
+http://127.0.0.1:8000/view_obituaries/submit_obituary/ ----> Submission form 
+http://127.0.0.1:8000/view_obituaries/view_obituaries/ ----> View Obituaries

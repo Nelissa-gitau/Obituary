@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obituary Platform</title>
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #3d3d3d; /* Background color: black */
+            color: #f8f0ff; /* Text color: light purple */
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 2.5rem; /* Adjust font size as needed */
+            color: #9a4dff; /* Heading color: purple */
+            text-transform: uppercase; /* Example text transformation */
+            letter-spacing: 2px; /* Example letter spacing */
+        }
+        .lead {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #f8f0ff; /* Lead text color: light purple */
+        }
+        .btn {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 1rem; /* Example font size */
+            text-align: center;
+            text-decoration: none;
+            background-color: #9a4dff; /* Button background color: purple */
+            color: #3d3d3d; /* Button text color: black */
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .btn-secondary {
+            background-color: #3d3d3d; /* Secondary button background color: black */
+            color: #9a4dff; /* Secondary button text color: purple */
+        }
+        .btn:hover {
+            background-color: #bf80ff; /* Button hover color: lighter purple */
+        }
+        .btn-secondary:hover {
+            background-color: #262626; /* Secondary button hover color: darker black */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Honoring Lives, Celebrating Memories</h1>
+        <p class="lead">Join us in remembering and celebrating the lives of loved ones. Share your tributes and read heartfelt messages from others.</p>
+        <a href="{% url 'submit_obituary' %}" class="btn">Share a Tribute</a>
+        <a href="{% url 'view_obituaries' %}" class="btn btn-secondary">Read Tributes</a>
+    </div>
+</body>
+</html>

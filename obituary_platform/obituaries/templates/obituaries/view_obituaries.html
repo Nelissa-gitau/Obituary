@@ -1,0 +1,139 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Page Title and Metadata -->
+    <title>View Obituaries</title>
+    <meta name="description" content="View and remember loved ones through our obituary platform.">
+    <meta name="keywords" content="obituaries, memorials, remembrances">
+    
+    <!-- Structured Data (schema.org) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Obituaries",
+        "description": "View and remember loved ones through our obituary platform.",
+        "url": "http://yourdomain.com/view_obituaries"
+    }
+    </script>
+
+    <!-- Open Graph Meta Tags for Social Media Sharing -->
+    <meta property="og:title" content="Obituaries">
+    <meta property="og:description" content="View and remember loved ones through our obituary platform.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://yourdomain.com/view_obituaries">
+    <meta property="og:image" content="http://yourdomain.com/static/obituaries/img/og-image.jpg">
+
+    <!-- Load CSS Styles -->
+    <link rel="stylesheet" href="{% static 'obituaries/css/style.css' %}">
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #3d3d3d;
+            color: #f8f0ff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #9a4dff;
+        }
+        table {
+            width: 100%;
+            max-width: 800px;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #9a4dff;
+            text-align: left;
+        }
+        th {
+            background-color: #9a4dff;
+            color: #3d3d3d;
+        }
+        td {
+            background-color: #f8f0ff;
+            color: #3d3d3d;
+        }
+        .go-back-button {
+            margin-top: 20px;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #9a4dff;
+            color: #3d3d3d;
+            cursor: pointer;
+        }
+        .social-buttons a {
+            margin: 5px;
+            padding: 10px;
+            text-decoration: none;
+            background-color: #9a4dff;
+            color: #3d3d3d;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Obituaries</h1>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        <table class="obituaries-table">
+            <!-- Table Header -->
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Date of Birth</th>
+                    <th>Date of Death</th>
+                    <th>Content</th>
+                    <th>Author</th>
+                    <th>Submission Date</th>
+                </tr>
+            </thead>
+            <!-- Table Body -->
+            <tbody>
+                {% for obituary in obituaries %}
+                <tr>
+                    <td>{{ obituary.name }}</td>
+                    <td>{{ obituary.date_of_birth }}</td>
+                    <td>{{ obituary.date_of_death }}</td>
+                    <td>{{ obituary.content }}</td>
+                    <td>{{ obituary.author }}</td>
+                    <td>{{ obituary.submission_date }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="6">No obituaries found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+
+    <form action="{% url 'submit_obituary' %}">
+        <button type="submit" class="go-back-button">Go Back to Submit Obituary</button>
+    </form>
+
+    <!-- Social Media Sharing Buttons -->
+    <aside>
+        <div class="social-buttons">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://yourdomain.com/view_obituaries" target="_blank">Share on Facebook</a>
+            <a href="https://twitter.com/intent/tweet?url=http://yourdomain.com/view_obituaries&text=Check out these obituaries" target="_blank">Share on Twitter</a>
+        </div>
+    </aside>
+
+
+</body>
+</html>
